@@ -1,0 +1,139 @@
+	
+DROP DATABASE IF EXISTS chatbot;
+CREATE DATABASE chatbot;
+use chatbot;
+
+
+CREATE TABLE Employee_table(
+   emp_id     INTEGER  NOT NULL PRIMARY KEY 
+  ,firstname  VARCHAR(7) NOT NULL
+  ,lastname   VARCHAR(8) NOT NULL
+  ,email      VARCHAR(27) NOT NULL
+  ,phone      BIGINT  NOT NULL
+  ,dept_id    VARCHAR(6) NOT NULL
+  ,design     VARCHAR(8) NOT NULL
+  ,project_id VARCHAR(3) NOT NULL
+  ,manager_id INTEGER  NOT NULL
+  ,location   VARCHAR(6) NOT NULL
+);
+
+
+CREATE TABLE Salary_table(
+   emp_id INTEGER  NOT NULL PRIMARY KEY 
+  ,salary INTEGER  NOT NULL
+);
+
+
+CREATE TABLE Department_table(
+   dept_id       VARCHAR(6) NOT NULL PRIMARY KEY
+  ,dept_name     VARCHAR(2) NOT NULL
+  ,dept_location VARCHAR(6) NOT NULL
+  ,dept_manager  INTEGER  NOT NULL
+);
+
+CREATE TABLE Project_table(
+   Project_id VARCHAR(3) NOT NULL PRIMARY KEY
+  ,prj_name   VARCHAR(17) NOT NULL
+  ,prj_loc    VARCHAR(14) NOT NULL
+);
+
+
+CREATE TABLE Attendance(
+   emp_id    INTEGER  NOT NULL PRIMARY KEY 
+  ,January   INTEGER  NOT NULL
+  ,February  INTEGER  NOT NULL
+  ,March     INTEGER  NOT NULL
+  ,April     INTEGER  NOT NULL
+  ,May       INTEGER  NOT NULL
+  ,June      INTEGER  NOT NULL
+  ,July      INTEGER  NOT NULL
+  ,August    INTEGER  NOT NULL
+  ,September INTEGER  NOT NULL
+  ,October   INTEGER  NOT NULL
+  ,November  INTEGER  NOT NULL
+  ,December  INTEGER  NOT NULL
+);
+
+CREATE TABLE Complaints_table(
+   by_emp_id  INTEGER  NOT NULL PRIMARY KEY 
+  ,for_emp_id INTEGER  NOT NULL
+  ,Message    VARCHAR(21) NOT NULL
+);
+
+
+
+CREATE TABLE Employee_Qualification(
+   emp_id             INTEGER  NOT NULL PRIMARY KEY 
+  ,experience_year    INTEGER  NOT NULL
+  ,emp_tech_expertise VARCHAR(23) NOT NULL
+);
+
+INSERT INTO Employee_table(emp_id,firstname,lastname,email,phone,dept_id,design,project_id,manager_id,location) VALUES (1,'Leonard','Davis','LeonardJDavis@teleworm.us',9783542027,'Mum_IT','employee','1A',3,'Mumbai');
+INSERT INTO Employee_table(emp_id,firstname,lastname,email,phone,dept_id,design,project_id,manager_id,location) VALUES (2,'Joann','Burnside','JoannTBurnside@armyspy.com',2015560652,'Mum_IT','employee','1A',3,'Mumbai');
+INSERT INTO Employee_table(emp_id,firstname,lastname,email,phone,dept_id,design,project_id,manager_id,location) VALUES (3,'Sheldon','Thompson','SheldonDThompson@dayrep.com',7707204181,'Mum_IT','manager','1A',0,'Mumbai');
+INSERT INTO Employee_table(emp_id,firstname,lastname,email,phone,dept_id,design,project_id,manager_id,location) VALUES (4,'Glenda','Goggins','GlendaBGoggins@rhyta.com',2124094172,'Mum_HR','employee','1B',6,'Mumbai');
+INSERT INTO Employee_table(emp_id,firstname,lastname,email,phone,dept_id,design,project_id,manager_id,location) VALUES (5,'Ashley','White','AshleyRWhite@teleworm.us',9037812949,'Mum_HR','employee','1B',6,'Mumbai');
+INSERT INTO Employee_table(emp_id,firstname,lastname,email,phone,dept_id,design,project_id,manager_id,location) VALUES (6,'Brian','Sisco','BrianSSisco@teleworm.us',8176585120,'Mum_HR','manager','1B',0,'Mumbai');
+INSERT INTO Employee_table(emp_id,firstname,lastname,email,phone,dept_id,design,project_id,manager_id,location) VALUES (7,'Gordon','Bolden','GordonDBolden@armyspy.com',2125153431,'Del_IT','employee','13C',9,'Delhi');
+INSERT INTO Employee_table(emp_id,firstname,lastname,email,phone,dept_id,design,project_id,manager_id,location) VALUES (8,'Doris','Lopez','DorisGLopez@armyspy.com',9313496502,'Del_IT','employee','13C',9,'Delhi');
+INSERT INTO Employee_table(emp_id,firstname,lastname,email,phone,dept_id,design,project_id,manager_id,location) VALUES (9,'Joanne','Berry','JoanneLBerry@jourrapide.com',7153592514,'Del_IT','manager','13C',0,'Delhi');
+INSERT INTO Employee_table(emp_id,firstname,lastname,email,phone,dept_id,design,project_id,manager_id,location) VALUES (10,'Grace','Guardado','GraceJGuardado@teleworm.us',6033781049,'Del_HR','employee','13D',0,'Delhi');
+
+
+INSERT INTO Salary_table(emp_id,salary) VALUES (1,68000);
+INSERT INTO Salary_table(emp_id,salary) VALUES (2,38000);
+INSERT INTO Salary_table(emp_id,salary) VALUES (3,66000);
+INSERT INTO Salary_table(emp_id,salary) VALUES (4,48000);
+INSERT INTO Salary_table(emp_id,salary) VALUES (5,54000);
+INSERT INTO Salary_table(emp_id,salary) VALUES (6,33000);
+INSERT INTO Salary_table(emp_id,salary) VALUES (7,58000);
+INSERT INTO Salary_table(emp_id,salary) VALUES (8,26000);
+INSERT INTO Salary_table(emp_id,salary) VALUES (9,66000);
+INSERT INTO Salary_table(emp_id,salary) VALUES (10,29000);
+
+
+INSERT INTO Department_table(dept_id,dept_name,dept_location,dept_manager) VALUES ('Mum_IT','IT','Mumbai',3);
+INSERT INTO Department_table(dept_id,dept_name,dept_location,dept_manager) VALUES ('Mum_HR','HR','Mumbai',6);
+INSERT INTO Department_table(dept_id,dept_name,dept_location,dept_manager) VALUES ('Del_IT','IT','Delhi',9);
+INSERT INTO Department_table(dept_id,dept_name,dept_location,dept_manager) VALUES ('Del_HR','HR','Delhi',10);
+
+
+INSERT INTO Project_table(Project_id,prj_name,prj_loc) VALUES ('1A','Titan','Rockland');
+INSERT INTO Project_table(Project_id,prj_name,prj_loc) VALUES ('1B','Project Hanks','South portland');
+INSERT INTO Project_table(Project_id,prj_name,prj_loc) VALUES ('13C','Project Blue Book','Lewiston');
+INSERT INTO Project_table(Project_id,prj_name,prj_loc) VALUES ('13D','Durango','Augusta');
+
+
+INSERT INTO Attendance(emp_id,January,February,March,April,May,June,July,August,September,October,November,December) VALUES (1,13,9,11,5,4,1,9,2,22,26,7,23);
+INSERT INTO Attendance(emp_id,January,February,March,April,May,June,July,August,September,October,November,December) VALUES (2,20,16,2,2,27,7,7,10,2,0,9,8);
+INSERT INTO Attendance(emp_id,January,February,March,April,May,June,July,August,September,October,November,December) VALUES (3,3,19,23,7,26,18,6,1,14,7,1,2);
+INSERT INTO Attendance(emp_id,January,February,March,April,May,June,July,August,September,October,November,December) VALUES (4,9,14,21,18,6,9,22,2,7,10,23,17);
+INSERT INTO Attendance(emp_id,January,February,March,April,May,June,July,August,September,October,November,December) VALUES (5,3,13,27,22,17,17,25,26,12,18,1,25);
+INSERT INTO Attendance(emp_id,January,February,March,April,May,June,July,August,September,October,November,December) VALUES (6,1,16,21,5,15,23,18,20,19,2,8,2);
+INSERT INTO Attendance(emp_id,January,February,March,April,May,June,July,August,September,October,November,December) VALUES (7,8,3,13,13,2,17,6,22,8,2,11,23);
+INSERT INTO Attendance(emp_id,January,February,March,April,May,June,July,August,September,October,November,December) VALUES (8,0,13,24,24,1,1,15,24,1,0,18,4);
+INSERT INTO Attendance(emp_id,January,February,March,April,May,June,July,August,September,October,November,December) VALUES (9,22,26,10,23,25,9,27,17,23,27,16,10);
+INSERT INTO Attendance(emp_id,January,February,March,April,May,June,July,August,September,October,November,December) VALUES (10,10,11,12,6,21,23,24,13,19,24,27,11);
+
+
+
+
+INSERT INTO Complaints_table(by_emp_id,for_emp_id,Message) VALUES (6,9,'Always Late.');
+INSERT INTO Complaints_table(by_emp_id,for_emp_id,Message) VALUES (9,5,'Very Rude !!');
+INSERT INTO Complaints_table(by_emp_id,for_emp_id,Message) VALUES (8,9,'Tired all the time.');
+INSERT INTO Complaints_table(by_emp_id,for_emp_id,Message) VALUES (10,6,'Stupid.');
+INSERT INTO Complaints_table(by_emp_id,for_emp_id,Message) VALUES (9,1,'Not Available Always.');
+
+
+
+
+INSERT INTO Employee_Qualification(emp_id,experience_year,emp_tech_expertise) VALUES (1,9,'Node.js, Angular.js');
+INSERT INTO Employee_Qualification(emp_id,experience_year,emp_tech_expertise) VALUES (2,18,'Android Development');
+INSERT INTO Employee_Qualification(emp_id,experience_year,emp_tech_expertise) VALUES (3,19,'Java');
+INSERT INTO Employee_Qualification(emp_id,experience_year,emp_tech_expertise) VALUES (4,10,'C++');
+INSERT INTO Employee_Qualification(emp_id,experience_year,emp_tech_expertise) VALUES (5,18,'Django');
+INSERT INTO Employee_Qualification(emp_id,experience_year,emp_tech_expertise) VALUES (6,19,'HTML,JQuery,Javascript');
+INSERT INTO Employee_Qualification(emp_id,experience_year,emp_tech_expertise) VALUES (7,1,'C#');
+INSERT INTO Employee_Qualification(emp_id,experience_year,emp_tech_expertise) VALUES (8,16,'Unity , Maya');
+INSERT INTO Employee_Qualification(emp_id,experience_year,emp_tech_expertise) VALUES (9,6,'Mongo DB');
+INSERT INTO Employee_Qualification(emp_id,experience_year,emp_tech_expertise) VALUES (10,18,'Networking');

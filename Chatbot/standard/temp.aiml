@@ -1,0 +1,295 @@
+
+<category>
+    <pattern>show complaint submit *</pattern>
+    <template>@SELECT Complaints_table.message FROM Complaints_table INNER JOIN Employee_table ON Employee_table.emp_id=Complaints_table.by_emp_id Where Employee_table.firstname like %<star/>%
+</template>
+</category>
+
+
+<category>
+    <pattern>show complaint</pattern>
+    <template>@ SELECT * FROM Complaints_table
+</template>
+</category>
+
+
+<!-- <category>
+    <pattern>give attend * *</pattern>
+    <template>@SELECT Attendance.%<star index = “2”/>% FROM Attendance INNER JOIN Employee_table ON Employee_table.emp_id=Attendance.emp_id Where Employee_table.firstname like %<star index = “1”/>%
+</template>
+</category> -->
+
+<category>
+    <pattern>count complaint</pattern>
+    <template>@SELECT count(*) from  Complaints_table;
+</template>
+</category>
+
+<category>
+    <pattern>give attend chart *</pattern>
+    <template>$Select January,February,March,April,May,June,July,August,September,October,November,December from Attendance , Employee_table where Employee_table.emp_id = Attendance.emp_id and firstname like %<star/>%;
+</template>
+</category>
+
+<category>
+      <pattern>Lsa detail</pattern>
+      <template> Do you want Employee Details
+	  <think> 
+	  <set name = "topic">employeeDetails</set>
+	  </think>
+	  </template>  
+   </category>
+
+<topic value="employeeDetails">
+   <category>
+      <pattern>ye</pattern>
+      <template>give name employe whose detail want
+	  <think> 
+	  <set name = "topic">ename</set>
+	  </think>
+	  </template>
+   </category>
+</topic>
+
+<topic value="ename">
+   <category>
+      <pattern>employe name *</pattern>
+      <template><srai>Give me details of <star/></srai>
+	  </template>
+   </category>
+</topic>
+
+<category>
+    <pattern>give attend *</pattern>
+    <template>@SELECT * FROM Attendance WHERE emp_id LIKE  '%<star/>%';</template>
+</category>
+
+<!-- <category>
+    <pattern>give employe present locat *</pattern>
+    <template>@SELECT email FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category> -->
+
+<!-- <category>
+    <pattern>give employe present locat * work * depart</pattern>
+    <template>@SELECT email FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category> -->
+<!-- 
+<category>
+    <pattern>give salari employe *</pattern>
+    <template>@SELECT salary FROM salary_master WHERE emp_id LIKE  '%<star/>%';</template>
+</category>
+ -->
+<!-- <category>
+    <pattern>manag * depart</pattern>
+    <template>@SELECT email FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category> -->
+
+<!-- <category>
+    <pattern>md locat *</pattern>
+    <template>@SELECT email FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category> -->
+
+<!-- <category>
+    <pattern>head depart *</pattern>
+    <template>@SELECT dept_manager FROM dept_master WHERE dept_name LIKE  '%<star/>%';</template>
+</category> -->
+
+<!-- <category>
+    <pattern>give * depart detail * locat</pattern>
+    <template>@SELECT email FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category> -->
+
+
+<category>
+    <pattern>tell detail *</pattern>
+    <template>@SELECT * FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>tell email *</pattern>
+    <template>@SELECT email FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>tell phone *</pattern>
+    <template>@SELECT phone FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>tell jobtitl *</pattern>
+    <template>@SELECT design FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>tell locat*</pattern>
+    <template>@SELECT location FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>tell salari *</pattern>
+    <template>@Select firstname as Name,salary as Salary from salary_table, employee_table where employee_table.emp_id = salary_table.emp_id and firstname LIKE %<star/>%';
+</template>
+</category>
+
+<category>
+    <pattern>tell employe work *</pattern>
+    <template>@select firstname as Name from employee_table,project_table where employee_table.project_id = project_table.Project_id and prj_name  LIKE %<star/>%';
+</template>
+</category>
+
+<category>
+    <pattern>tell manag *</pattern>
+    <template>@select firstname as Name from employee_table,project_table where employee_table.project_id = project_table.Project_id and prj_name  LIKE %<star/>%';
+</template>
+</category>
+
+<category>
+    <pattern>tell work experi *</pattern>
+    <template>@SELECT Employee_Qualification.experience_year FROM Employee_Qualification INNER JOIN Employee_table ON Employee_table.emp_id=Employee_Qualification.emp_id Where Employee_table.firstname like %<star/>%;
+</template>
+
+<category>
+    <pattern>tell technolog expertis *</pattern>
+    <template>@ SELECT Employee_Qualification.emp_tech_expertise FROM Employee_Qualification INNER JOIN Employee_table ON Employee_table.emp_id=Employee_Qualification.emp_id Where Employee_table.firstname like %<star/>%
+</template>
+</category>
+
+<category>
+    <pattern>tell work experi technolog expertis *</pattern>
+    <template>@SELECT * FROM Employee_Qualification INNER JOIN Employee_table ON Employee_table.emp_id=Employee_Qualification.emp_id Where Employee_table.firstname like %<star/>%
+</template>
+</category>
+
+<category>
+    <pattern>show complaint submit *</pattern>
+    <template>@SELECT Complaints_table.message FROM Complaints_table INNER JOIN Employee_table ON Employee_table.emp_id=Complaints_table.by_emp_id Where Employee_table.firstname like %<star/>%
+</template>
+</category>
+
+
+<category>
+    <pattern>show complaint</pattern>
+    <template>@ SELECT * FROM Complaints_table
+</template>
+</category>
+
+
+<!-- <category>
+    <pattern>tell attend * *</pattern>
+    <template>@SELECT Attendance.%<star index = “2”/>% FROM Attendance INNER JOIN Employee_table ON Employee_table.emp_id=Attendance.emp_id Where Employee_table.firstname like %<star index = “1”/>%
+</template>
+</category> -->
+
+<category>
+    <pattern>tell attend chart *</pattern>
+    <template>$Select January,February,March,April,May,June,July,August,September,October,November,December from Attendance , Employee_table where Employee_table.emp_id = Attendance.emp_id and firstname like %<star/>%;
+</template>
+</category>
+
+
+<category>
+    <pattern>show detail *</pattern>
+    <template>@SELECT * FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>show email *</pattern>
+    <template>@SELECT email FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>show phone *</pattern>
+    <template>@SELECT phone FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>show jobtitl *</pattern>
+    <template>@SELECT design FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>show locat*</pattern>
+    <template>@SELECT location FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>show salari *</pattern>
+    <template>@Select firstname as Name,salary as Salary from salary_table, employee_table where employee_table.emp_id = salary_table.emp_id and firstname LIKE %<star/>%';
+</template>
+</category>
+
+<category>
+    <pattern>show employe work *</pattern>
+    <template>@select firstname as Name from employee_table,project_table where employee_table.project_id = project_table.Project_id and prj_name  LIKE %<star/>%';
+</template>
+</category>
+
+<category>
+    <pattern>show manag *</pattern>
+    <template>@select firstname as Name from employee_table,project_table where employee_table.project_id = project_table.Project_id and prj_name  LIKE %<star/>%';
+</template>
+</category>
+
+<category>
+    <pattern>show work experi *</pattern>
+    <template>@SELECT Employee_Qualification.experience_year FROM Employee_Qualification INNER JOIN Employee_table ON Employee_table.emp_id=Employee_Qualification.emp_id Where Employee_table.firstname like %<star/>%;
+</template>
+
+<category>
+    <pattern>show technolog expertis *</pattern>
+    <template>@ SELECT Employee_Qualification.emp_tech_expertise FROM Employee_Qualification INNER JOIN Employee_table ON Employee_table.emp_id=Employee_Qualification.emp_id Where Employee_table.firstname like %<star/>%
+</template>
+</category>
+
+<category>
+    <pattern>show work experi technolog expertis *</pattern>
+    <template>@SELECT * FROM Employee_Qualification INNER JOIN Employee_table ON Employee_table.emp_id=Employee_Qualification.emp_id Where Employee_table.firstname like %<star/>%
+</template>
+</category>
+
+<category>
+    <pattern>show complaint submit *</pattern>
+    <template>@SELECT Complaints_table.message FROM Complaints_table INNER JOIN Employee_table ON Employee_table.emp_id=Complaints_table.by_emp_id Where Employee_table.firstname like %<star/>%
+</template>
+</category>
+
+
+<category>
+    <pattern>show complaint</pattern>
+    <template>@ SELECT * FROM Complaints_table
+</template>
+</category>
+
+
+<!-- <category>
+    <pattern>show attend * *</pattern>
+    <template>@SELECT Attendance.%<star index = “2”/>% FROM Attendance INNER JOIN Employee_table ON Employee_table.emp_id=Attendance.emp_id Where Employee_table.firstname like %<star index = “1”/>%
+</template>
+</category> -->
+
+<category>
+    <pattern>show attend chart *</pattern>
+    <template>$Select January,February,March,April,May,June,July,August,September,October,November,December from Attendance , Employee_table where Employee_table.emp_id = Attendance.emp_id and firstname like %<star/>%;
+</template>
+</category>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ msg = "count of complaints"
+    response = aiml_handle.respond(preprocess_data(msg))
+    result_list = database_fetch(response[1:]);
+    if len(result_list) != 0:
+        msg =  "Hi " +str(request.user) +  " we have recieved <span class=\"badge\" style=\"float: none;background:red;\">" + str(result_list[0]["count(*)"]) + "</span> complaints."
+        chat_message = Chat(user=request.user, message=msg,human_bot=False)
+        chat_message.save()
+    

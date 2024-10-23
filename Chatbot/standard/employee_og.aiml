@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0.1">
+
+<category>
+    <pattern>Give me details of *</pattern>
+    <template>@SELECT * FROM employees WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>Give me email of *</pattern>
+    <template>@SELECT email FROM employees WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>Give me jobTitle of *</pattern>
+    <template>@SELECT * FROM employees WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>Give me order that are *</pattern>
+    <template>@SELECT * FROM orders WHERE status = "<star/>";</template>
+</category>
+
+<category>
+    <pattern>Give me details of office in *</pattern>
+    <template>@SELECT * FROM offices WHERE city = "<star/>";</template>
+</category>
+
+<category>
+    <pattern>Give me phone of office in *</pattern>
+    <template>@SELECT phone FROM offices WHERE city = "<star/>";;</template>
+</category>
+
+<category>
+    <pattern>Give me attendance of *</pattern>
+    <template>$select January, February, March, April, May, June, July, August,September,October,November,December from mytable where emp_id  = <star/>;;</template>
+</category>
+
+<category>
+    <pattern>count of complaints</pattern>
+    <template>@Select count(*) from complaints;</template>
+</category>
+
+
+
+<category>
+      <pattern>Lsa detail</pattern>
+      <template> Do you want Employee Details
+	  <think> 
+	  <set name = "topic">employeeDetails</set>
+	  </think>
+	  </template>  
+   </category>
+
+
+
+</aiml>

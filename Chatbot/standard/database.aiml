@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+
+<category>
+<pattern>Salary of *</pattern>
+<template>
+<think>
+<set name="emp_no"> <srai> Is an emp_no <star /></srai></set>
+<set name="first_name"> <srai> Is a first name <star /></srai></set>
+<set name="last_name"> <srai> Is a last name <star /></srai></set>
+</think>
+<condition name="emp_no">
+<li value="Yes"><srai>@Select salary From salaries Where emp_no =<star /></srai></li> 
+</condition>
+<condition name="first_name">
+<li value="Yes"><srai>@Select salaries.salary From salaries INNER JOIN employees 
+ON salaries.emp_no=employees.emp_no Where employees.first_name =<star /></srai></li>
+</condition>
+<condition name="last_name">
+<li value="Yes"><srai>@Select salaries.salary From salaries INNER JOIN employees 
+ON salaries.emp_no=employees.emp_no Where employees.last_name =<star /></srai></li>
+</condition>
+</template>
+</category>
+
+<category>
+<pattern>Name of *</pattern>
+<template>
+<random>
+<li>@Select first_name, last_name From employees Where emp_no =<star /></template></li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>Employee ID of *</pattern>
+<template>@Select emp_no From employees Where first_name=<star /></template>
+</category>
+
+<category>
+<pattern>Gender of *</pattern>
+<template>
+<random>
+<li>@Select gender From employees Where first_name=<star /></li>
+<li>@Select gender From employees Where last_name=<star /></li>
+<li>@Select gender From employees Where emp_no=<star /></li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>Hiring date of *</pattern>
+<template>
+<random>
+<li>@Select hire_date From employees Where first_name=<star /></li>
+<li>@Select hire_date From employees Where last_name=<star /></li>
+<li>@Select hire_date From employees Where emp_no=<star /></li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>Department of *</pattern>
+<template>
+<random>
+<li>@Select departments.dept_name From departments INNER JOIN dept_emp ON dept_emp.dept_no=departments.dept_no
+Where emp_no=<star /></li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>Department no of *</pattern>
+<template>@Select dept_no From departments Where dept_name=<star /></template>
+</category>

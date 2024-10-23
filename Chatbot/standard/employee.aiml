@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0.1">
+
+<category>
+    <pattern>give detail *</pattern>
+    <template>@SELECT * FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>give email *</pattern>
+    <template>@SELECT email FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>give phone *</pattern>
+    <template>@SELECT phone FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>give jobtitl *</pattern>
+    <template>@SELECT design FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>give locat *</pattern>
+    <template>@SELECT location FROM employee_table WHERE firstName LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>give salari *</pattern>
+    <template>@Select firstname as Name,salary as Salary from salary_table, employee_table where employee_table.emp_id = salary_table.emp_id and firstname LIKE %<star/>%';
+</template>
+</category>
+
+<category>
+    <pattern>give employe work *</pattern>
+    <template>@select firstname as Name from employee_table,project_table where employee_table.project_id = project_table.Project_id and prj_name  LIKE %<star/>%';
+</template>
+</category>
+
+<category>
+    <pattern>give manag *</pattern>
+    <template>@select firstname as Name from employee_table,project_table where employee_table.project_id = project_table.Project_id and prj_name  LIKE %<star/>%';
+</template>
+</category>
+
+<category>
+    <pattern>give work experi *</pattern>
+    <template>@SELECT Employee_Qualification.experience_year FROM Employee_Qualification INNER JOIN Employee_table ON Employee_table.emp_id=Employee_Qualification.emp_id Where Employee_table.firstname like %<star/>%;
+</template>
+</category>
+
+<category>
+    <pattern>give technolog expertis *</pattern>
+    <template>@ SELECT Employee_Qualification.emp_tech_expertise FROM Employee_Qualification INNER JOIN Employee_table ON Employee_table.emp_id=Employee_Qualification.emp_id Where Employee_table.firstname like '%<star/>%'
+</template>
+</category>
+
+<category>
+    <pattern>give work experi technolog expertis *</pattern>
+    <template>@SELECT * FROM Employee_Qualification INNER JOIN Employee_table ON Employee_table.emp_id=Employee_Qualification.emp_id Where Employee_table.firstname like '%<star/>%'
+</template>
+</category>
+
+<category>
+    <pattern>give attend chart *</pattern>
+    <template>$Select January,February,March,April,May,June,July,August,September,October,November,December from Attendance , Employee_table where Employee_table.emp_id = Attendance.emp_id and firstname 
+	LIKE  '%<star/>%';</template>
+</category>
+
+<category>
+    <pattern>employe expertis *</pattern>
+    <template>
+	@SELECT Employee_table.firstname , Employee_Qualification.emp_tech_expertise FROM Employee_Qualification INNER JOIN Employee_table ON Employee_table.emp_id=Employee_Qualification.emp_id Where Employee_Qualification.emp_tech_expertise like '%<star/>%';
+</template>
+</category>
+
+
+<category>
+    <pattern>count complaint</pattern>
+    <template>@SELECT count(*) from  Complaints_table;
+</template>
+</category>
+
+<category>
+    <pattern>show complaint</pattern>
+    <template>@ SELECT emp1.firstname as BY_Employee,emp2.firstname as For_Employee,Complaints_table.message as Message FROM Complaints_table , Employee_table as emp1,Employee_table as emp2 Where emp1.emp_id = Complaints_table.for_emp_id AND emp2.emp_id = Complaints_table.by_emp_id ;
+</template>
+</category>
+</aiml>
